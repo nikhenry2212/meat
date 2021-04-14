@@ -1,0 +1,15 @@
+<a href="#">
+  <div class="place-info-box">
+    <!-- trazendo dados estaticos do arquivo restaurant.components.ts -->
+    <!-- que fez a simulção com o db -->
+    <span class="place-info-box-icon"><img [src]="restaurant.imagePath" /></span>
+
+    <div class="place-info-box-content">
+      <span class="place-info-box-text">{{restaurant.name}}</span>
+      <span class="place-info-box-star"><i class="fa fa-star"></i> {{restaurant.raiting}}</span>
+      <span class="place-info-box-detail">{{restaurant.category}}</span>
+      <span class="place-info-box-detail">{{restaurant.deliveryEstimate}}</span>
+    </div>
+    <!-- /.info-box-content -->
+  </div>
+</a>
