@@ -12,6 +12,8 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { RestaurantComponent } from './restaurants/restaurant/restaurant.component';
+import {RestaurantsService} from './restaurants/restaurants.service';
+//importei o modulo
 
 //import do component Restaurant
 
@@ -31,7 +33,8 @@ import { RestaurantComponent } from './restaurants/restaurant/restaurant.compone
     RouterModule.forRoot(ROUTES)
 
   ],
-  providers: [],
+  providers: [RestaurantsService],
+  //chamei o service  no providers
   bootstrap: [AppComponent]
 })
 export class AppModule { }
