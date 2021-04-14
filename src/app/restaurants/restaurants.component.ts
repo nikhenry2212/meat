@@ -39,7 +39,7 @@ export class RestaurantsComponent implements OnInit {
   // chamei ele dentro do constructor como propriedade
 
   ngOnInit() {
-    this.restaurants = this.restaurantService.restaurants()
+    this.restaurantService.restaurants().subscribe(restaurants => this.restaurants = restaurants);
   }
 
 }
