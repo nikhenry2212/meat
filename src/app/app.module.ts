@@ -17,6 +17,7 @@ import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail
 import { MenuComponent } from './restaurant-detail//menu/menu.component';
 import { ShoppingCartComponent } from './restaurant-detail/shopping-cart/shopping-cart.component';
 import { MenuItemComponent } from './restaurant-detail/menu-item/menu-item.component';
+import { ReviewsComponent } from './restaurant-detail/reviews/reviews.component';
 //importei o modulo
 
 //import do component Restaurant
@@ -34,6 +35,7 @@ import { MenuItemComponent } from './restaurant-detail/menu-item/menu-item.compo
     MenuComponent,
     ShoppingCartComponent,
     MenuItemComponent,
+    ReviewsComponent,
   ],
   imports: [
     BrowserModule,
