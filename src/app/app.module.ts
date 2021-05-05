@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID} from '@angular/core'; //LOCALE_ID provide para mudar a moeda
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
@@ -43,8 +43,8 @@ import { ShoppingCartService } from './restaurant-detail/shopping-cart/shopping-
     HttpModule,
     RouterModule.forRoot(ROUTES)
 
-  ],
-  providers: [RestaurantsService, ShoppingCartService],//coloquei modulo de erro aqui
+  ],//LOCALE_ID provide para mudar o valor da moeda
+  providers: [RestaurantsService, ShoppingCartService,{provide: LOCALE_ID, useValue: 'pt-BR'}],//coloquei modulo de erro aqui
   //chamei o service  no providers
   bootstrap: [AppComponent]
 })
