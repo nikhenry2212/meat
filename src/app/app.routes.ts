@@ -5,6 +5,7 @@ import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './restaurant-detail/menu/menu.component';
 import { ReviewsComponent } from './restaurant-detail/reviews/reviews.component';
+import { OrderComponent } from './order/order.component';
 
 export const ROUTES: Routes = [
   { path: '', component: HomeComponent },
@@ -20,6 +21,7 @@ export const ROUTES: Routes = [
     ]
   },
 
+  { path: 'order', component: OrderComponent },//rota nova para o component Order
   { path: 'about', component: AboutComponent }
   // add rota para component
 ]
