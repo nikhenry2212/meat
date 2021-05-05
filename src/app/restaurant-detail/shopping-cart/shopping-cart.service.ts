@@ -9,12 +9,26 @@ export class ShoppingCartService {
   }
 
   //metodo de add item no carrinho
-  addItem(item: MenuItem) {
-    let foundItem = this.items.find((mItem) => mItem.menuItem.id === item.id)
-    if (foundItem) {
-      foundItem.quantity = foundItem.quantity + 1;
-    } else {
+
+  addItem(item:MenuItem){
+    let foundItem = this.items.find((mItem)=> mItem.menuItem.id === item.id)
+    if(foundItem){
+      this.increaseQty(foundItem)
+      console.log(foundItem)
+    }else{
       this.items.push(new CartItem(item))
+    }
+    // this.notificationService.notify(`Você adicionou o item ${item.name}`)
+  }
+
+  increaseQty(item: CartItem){
+    item.quantity = item.quantity + 1
+  }
+
+  decreaseQty(item: CartItem){
+    item.quantity = item.quantity - 1
+    if (item.quantity === 0){
+      this.removeItem(item)
     }
   }
 //remover item

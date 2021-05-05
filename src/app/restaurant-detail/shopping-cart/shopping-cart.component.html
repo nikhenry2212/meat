@@ -9,32 +9,36 @@
   <div class="box-body">
 
     <!-- coloquei diretivas ngIf caso meu carrinho esteja vazio o container ficar sem aparecer buttons -->
-    <div *ngIf="!items.length">
+    <div *ngIf="!items().length">
       <p class="text-center">
         Seu carrinho está vazio !
       </p>
     </div>
-    <div class="table-responsive" *ngIf="items.length">
+    <div class="table-responsive" *ngIf="items().length">
         <table class="table">
           <tbody>
 
-          <tr *ngFor="let item of items">
-            <th>{{item.menuItem.name}}</th>
+          <tr *ngFor="let item of items()">
+            <th>({{item.quantity}}x) {{item.menuItem.name}}</th>
 
             <td class="text-right">{{item.value() | currency: 'BRL': true}}</td>
+            <td class="text-right">
+              <a (click)="removeItem(item)" class="btn btn-sm danger"><i class="fa fa-remove"></i></a>
+            </td>
           </tr>
           <tr>
             <th>Total:</th>
 
             <td class="text-right">{{total() | currency: 'BRL': true}}</td>
           </tr>
-        </tbody></table>
+        </tbody>
+      </table>
       </div>
   </div>
       <!-- coloquei diretivas ngIf caso meu carrinho esteja vazio o container ficar sem aparecer buttons -->
-  <div class="box-footer" *ngIf="items.length">
+  <div class="box-footer" *ngIf="items().length">
     <div class="pull-right">
-      <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i> Limpar</button>
+      <button (click)="clear()" type="button" class="btn btn-danger"><i class="fa fa-trash"></i> Limpar</button>
       <a href="order.html" class="btn btn-success"><i class="fa fa-credit-card"></i> Fechar Pedido</a>
     </div>
   </div>
