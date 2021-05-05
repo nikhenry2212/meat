@@ -18,7 +18,8 @@ import { MenuComponent } from './restaurant-detail//menu/menu.component';
 import { ShoppingCartComponent } from './restaurant-detail/shopping-cart/shopping-cart.component';
 import { MenuItemComponent } from './restaurant-detail/menu-item/menu-item.component';
 import { ReviewsComponent } from './restaurant-detail/reviews/reviews.component';
-import { ShoppingCartService } from './restaurant-detail/shopping-cart/shopping-cart.service'; //importei o modulo pq estava dando erro no providers
+import { ShoppingCartService } from './restaurant-detail/shopping-cart/shopping-cart.service';
+import { OrderComponent } from './order/order.component'; //importei o modulo pq estava dando erro no providers
 //importei o modulo
 
 //import do component Restaurant
@@ -37,6 +38,7 @@ import { ShoppingCartService } from './restaurant-detail/shopping-cart/shopping-
     ShoppingCartComponent,
     MenuItemComponent,
     ReviewsComponent,
+    OrderComponent,
   ],
   imports: [
     BrowserModule,

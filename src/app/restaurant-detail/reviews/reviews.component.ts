@@ -6,7 +6,7 @@ import {RestaurantsService} from '../../restaurants/restaurants.service';
 @Component({
   selector: 'mt-reviews',
   templateUrl: './reviews.component.html',
-  styleUrls: ['./reviews.component.css']
+
 })
 export class ReviewsComponent implements OnInit {
 
