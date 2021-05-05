@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID} from '@angular/core'; //LOCALE_ID provide para mudar a moeda
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';//modulo para validação
 
 import {ROUTES} from './app.routes'
 
@@ -43,6 +44,7 @@ import { OrderComponent } from './order/order.component'; //importei o modulo pq
   imports: [
     BrowserModule,
     HttpModule,
+    FormsModule,// declara NO IMPORTS
     RouterModule.forRoot(ROUTES)
 
   ],//LOCALE_ID provide para mudar o valor da moeda
