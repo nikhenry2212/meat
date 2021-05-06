@@ -21,7 +21,8 @@ import { MenuItemComponent } from './restaurant-detail/menu-item/menu-item.compo
 import { ReviewsComponent } from './restaurant-detail/reviews/reviews.component';
 import { ShoppingCartService } from './restaurant-detail/shopping-cart/shopping-cart.service';
 import { OrderComponent } from './order/order.component';
-import { InputComponent } from './shared/input/input.component'; //importei o modulo pq estava dando erro no providers
+import { InputComponent } from './shared/input/input.component';
+import { RadioComponent } from './shared/radio/radio.component'; //importei o modulo pq estava dando erro no providers
 //importei o modulo
 
 //import do component Restaurant
@@ -42,6 +43,7 @@ import { InputComponent } from './shared/input/input.component'; //importei o mo
     ReviewsComponent,
     OrderComponent,
     InputComponent,
+    RadioComponent,
   ],
   imports: [
     BrowserModule,
