@@ -370,5 +370,48 @@
       "restaurantId": "tasty-treats"
     }
   ],
-  "orders": []
+  "orders": [
+    {
+      "adress": "Renato",
+      "number": "12",
+      "optionalAddress": "Casa",
+      "paymentOption": "MON",
+      "orderItems": [
+        {
+          "quantity": 1,
+          "meniId": "burger"
+        },
+        {
+          "quantity": 1,
+          "meniId": "fries"
+        },
+        {
+          "quantity": 1,
+          "meniId": "coke.png"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "adress": "Rua Cazuza",
+      "number": "15",
+      "optionalAddress": "Casa",
+      "paymentOption": "DEB",
+      "orderItems": [
+        {
+          "quantity": 1,
+          "menuId": "sunday"
+        },
+        {
+          "quantity": 1,
+          "menuId": "chocpop"
+        },
+        {
+          "quantity": 1,
+          "menuId": "icestd.png"
+        }
+      ],
+      "id": 2
+    }
+  ]
 }
