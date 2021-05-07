@@ -4,6 +4,8 @@ import { RadioOption } from 'app/shared/radio/radio-option.model';
 import { Order, OrderItem } from './order.model';
 import { OrderService } from './order.service';
 
+import {Router} from '@angular/router';
+
 @Component({
   selector: 'mt-order',
   templateUrl: './order.component.html',
@@ -20,7 +22,7 @@ export class OrderComponent implements OnInit {
     {label: "Cartão Refeição", value: "REF"}
   ]
 
-  constructor(private orderService: OrderService) { }
+  constructor(private orderService: OrderService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -43,7 +45,7 @@ itemsValue(): number{
   checkOrder(order: Order){
     order.orderItems = this.cartItems().map((item: CartItem) => new OrderItem(item.quantity, item.menuItem.id))
     this.orderService.checkOrder(order).subscribe(( orderId: string) => {
-      console.log(`Compra concluida: ${orderId}`)
+      this.router.navigate(['/order-summary'])// criei uma rota usando Router e usando metodo navigate passando a rota
       this.orderService.clear()
     })
     console.log(order);
