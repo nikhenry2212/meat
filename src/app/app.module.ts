@@ -24,6 +24,7 @@ import { OrderComponent } from './order/order.component';
 import { InputComponent } from './shared/input/input.component';
 import { RadioComponent } from './shared/radio/radio.component';
 import { OrderItemsComponent } from './order/order-items/order-items.component'; //importei o modulo pq estava dando erro no providers
+import { OrderService } from './order/order.service';
 //importei o modulo
 
 //import do component Restaurant
@@ -54,7 +55,8 @@ import { OrderItemsComponent } from './order/order-items/order-items.component';
     RouterModule.forRoot(ROUTES)
 
   ],//LOCALE_ID provide para mudar o valor da moeda
-  providers: [RestaurantsService, ShoppingCartService,{provide: LOCALE_ID, useValue: 'pt-BR'}],//coloquei modulo de erro aqui
+  providers: [RestaurantsService, ShoppingCartService, OrderService,{provide: LOCALE_ID, useValue: 'pt-BR'}],//coloquei modulo de erro aqui
+  // Todo Service tem que colocar em providers
   //chamei o service  no providers
   bootstrap: [AppComponent]
 })

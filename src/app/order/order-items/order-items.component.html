@@ -1,12 +1,13 @@
           <!--Se não existir items no carrinho clique aqui -->
-          <div class="col-xs-12" *ngIf="!items">
+          <!--melhoirando a logica do layout para quando apagar todos os items do carrinho sumir as descrições-->
+          <div class="col-xs-12" *ngIf="items.length === 0">
             <p>
               Não há items no seu carrimho. Que tal começar por <a [routerLink]="['/restaurants']">aqui</a>?
             </p>
 
           </div>
             <!--se existir vai exibir essa tabela-->
-            <div class="col-xs-12 table-responsive" *ngIf="items">
+            <div class="col-xs-12 table-responsive" *ngIf="items.length > 0">
 
               <table class="table table-striped">
                 <thead>
@@ -25,7 +26,7 @@
                     {{item.quantity}}
                     <a (click)="emitIncreaseQty(item)" class="btn btn-sm"><i class="fa fa-plus"></i></a>
                   </td>
-                  <td>{{item.meniItem.name}}</td>
+                  <td>{{item.menuItem.name}}</td>
 
                   <td>{{item.menuItem.description}}</td>
                   <td class="text-right">{{item.value() | currency: 'BRL': true}}</td>

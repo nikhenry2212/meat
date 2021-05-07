@@ -21,6 +21,7 @@ export class ShoppingCartService {
     // this.notificationService.notify(`Você adicionou o item ${item.name}`)
   }
 
+
   increaseQty(item: CartItem){
     item.quantity = item.quantity + 1
   }
