@@ -25,6 +25,7 @@ import { InputComponent } from './shared/input/input.component';
 import { RadioComponent } from './shared/radio/radio.component';
 import { OrderItemsComponent } from './order/order-items/order-items.component'; //importei o modulo pq estava dando erro no providers
 import { OrderService } from './order/order.service';
+import { DeliveryCostsComponent } from './order/delivery-costs/delivery-costs.component';
 //importei o modulo
 
 //import do component Restaurant
@@ -47,6 +48,7 @@ import { OrderService } from './order/order.service';
     InputComponent,
     RadioComponent,
     OrderItemsComponent,
+    DeliveryCostsComponent,
   ],
   imports: [
     BrowserModule,
