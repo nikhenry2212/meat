@@ -50,7 +50,14 @@
               <p class="lead">Itens do Pedido:</p>
             </div>
             <!--component de items selecionados para compra-->
-            <mt-order-items></mt-order-items>
+            <!--Chamando os métodos passando o envento qé o item que recebe-->
+            <mt-order-items
+              [items]="cartItems()"
+              (increaseQty)="increaseQty($event)"
+              (decreaseQty)="decreaseQty($event)"
+              (remove)="remove($event)"
+              >
+            </mt-order-items>
             <!-- /.col -->
           </div>
           <!-- /.row -->
