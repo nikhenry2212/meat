@@ -5,7 +5,7 @@ import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail
 import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './restaurant-detail/menu/menu.component';
 import { ReviewsComponent } from './restaurant-detail/reviews/reviews.component';
-import { OrderComponent } from './order/order.component';
+
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
 
 export const ROUTES: Routes = [
@@ -22,7 +22,7 @@ export const ROUTES: Routes = [
     ]
   },
 
-  { path: 'order', component: OrderComponent },//rota nova para o component Order
+  { path: 'order', loadChildren: './order/order.module#OrderModule' },//rota nova para o component Order
   { path: 'order-summary', component: OrderSummaryComponent },//rota nova para o component Order-summary
   { path: 'about', loadChildren: './about/about.module#AboutModule'}// rota para compatilhar modulo
   // add rota para component
