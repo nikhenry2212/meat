@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, LOCALE_ID} from '@angular/core'; //LOCALE_ID provide para mudar a moeda
+import { NgModule, LOCALE_ID, } from '@angular/core'; //LOCALE_ID provide para mudar a moeda
 import { HttpModule } from '@angular/http';
-import { RouterModule } from '@angular/router';
+import { RouterModule, PreloadAllModules } from '@angular/router';
 
 //uma forma mais nova de fazer forms
 import {ROUTES} from './app.routes'
@@ -51,8 +51,8 @@ import { SharedModule } from './shared/shared.module'; ///modulo compartilhado (
     HttpModule,
    // Modulo de serviços
     SharedModule.forRoot(),//declaração
-    RouterModule.forRoot(ROUTES)// modulo about foi compartilhado
-
+    RouterModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules})// modulo about foi compartilhado
+    // preloading carrega o modulo de rotas uma vez só
   ],//LOCALE_ID provide para mudar o valor da moeda
   providers: [
 
