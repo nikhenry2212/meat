@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail.component';
-import { AboutComponent } from './about/about.component';
+
 import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './restaurant-detail/menu/menu.component';
 import { ReviewsComponent } from './restaurant-detail/reviews/reviews.component';
@@ -24,6 +24,6 @@ export const ROUTES: Routes = [
 
   { path: 'order', component: OrderComponent },//rota nova para o component Order
   { path: 'order-summary', component: OrderSummaryComponent },//rota nova para o component Order-summary
-  { path: 'about', component: AboutComponent }
+  { path: 'about', loadChildren: './about/about.module#AboutModule'}// rota para compatilhar modulo
   // add rota para component
 ]
