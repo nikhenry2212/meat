@@ -23,7 +23,7 @@ import { ReviewsComponent } from './restaurant-detail/reviews/reviews.component'
 
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
 import { SharedModule } from './shared/shared.module'; ///modulo compartilhado (input,radio,raiting)
-import { CoreModule } from './core/core.module';
+
 
 //importei o modulo
 
@@ -49,8 +49,8 @@ import { CoreModule } from './core/core.module';
   imports: [
     BrowserModule,
     HttpModule,
-    CoreModule,// Modulo de serviços
-    SharedModule,//declaração
+   // Modulo de serviços
+    SharedModule.forRoot(),//declaração
     RouterModule.forRoot(ROUTES)// modulo about foi compartilhado
 
   ],//LOCALE_ID provide para mudar o valor da moeda
