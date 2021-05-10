@@ -472,6 +472,23 @@
         }
       ],
       "id": 6
+    },
+    {
+      "adress": "Rua Raul Seixas",
+      "number": "65",
+      "optionalAddress": "Casa",
+      "paymentOption": "MON",
+      "orderItems": [
+        {
+          "quantity": 1,
+          "menuId": "cup-cake"
+        },
+        {
+          "quantity": 1,
+          "menuId": "donut"
+        }
+      ],
+      "id": 7
     }
   ]
 }

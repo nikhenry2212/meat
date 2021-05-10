@@ -2,8 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID} from '@angular/core'; //LOCALE_ID provide para mudar a moeda
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';//modulo para validação
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';//modulo para validação
+//uma forma mais nova de fazer forms
 import {ROUTES} from './app.routes'
 
 
@@ -58,10 +58,14 @@ import { RatingComponent } from './shared/rating/rating.component';
     BrowserModule,
     HttpModule,
     FormsModule,// declara NO IMPORTS
+    ReactiveFormsModule,
     RouterModule.forRoot(ROUTES)
 
   ],//LOCALE_ID provide para mudar o valor da moeda
-  providers: [RestaurantsService, ShoppingCartService, OrderService,{provide: LOCALE_ID, useValue: 'pt-BR'}],//coloquei modulo de erro aqui
+  providers: [
+    RestaurantsService,
+    ShoppingCartService,
+    OrderService,{provide: LOCALE_ID, useValue: 'pt-BR'}],//coloquei modulo de erro aqui
   // Todo Service tem que colocar em providers
   //chamei o service  no providers
   bootstrap: [AppComponent]
