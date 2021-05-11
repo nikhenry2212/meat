@@ -19,6 +19,8 @@ import { ShoppingCartComponent } from './restaurant-detail/shopping-cart/shoppin
 import { MenuItemComponent } from './restaurant-detail/menu-item/menu-item.component';
 import { ReviewsComponent } from './restaurant-detail/reviews/reviews.component';
 
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 //importei o modulo pq estava dando erro no providers
 
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
@@ -49,6 +51,7 @@ import { SharedModule } from './shared/shared.module'; ///modulo compartilhado (
   imports: [
     BrowserModule,
     HttpModule,
+    BrowserAnimationsModule,
    // Modulo de serviços
     SharedModule.forRoot(),//declaração
     RouterModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules})// modulo about foi compartilhado
