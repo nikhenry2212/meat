@@ -1,4 +1,5 @@
-<div class="menu-item-info-box">
+<div class="menu-item-info-box" [@menuItemAppeared]="menuItemState">
+  <!-- as referencias tem que ser no elemento pai -->
   <span class="menu-item-info-box-icon">
     <img [src]="menuItem.imagePath"></span>
 
