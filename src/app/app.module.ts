@@ -3,8 +3,11 @@ import { NgModule, LOCALE_ID, } from '@angular/core'; //LOCALE_ID provide para m
 import { HttpModule } from '@angular/http';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+
 //uma forma mais nova de fazer forms
-import {ROUTES} from './app.routes'
+import { ROUTES } from './app.routes';
+
 
 
 import { AppComponent } from './app.component';
@@ -19,7 +22,7 @@ import { ShoppingCartComponent } from './restaurant-detail/shopping-cart/shoppin
 import { MenuItemComponent } from './restaurant-detail/menu-item/menu-item.component';
 import { ReviewsComponent } from './restaurant-detail/reviews/reviews.component';
 
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //importei o modulo pq estava dando erro no providers
 
@@ -55,14 +58,14 @@ import { NotFoundComponent } from './not-found/not-found.component';
     BrowserModule,
     HttpModule,
     BrowserAnimationsModule,
-   // Modulo de serviços
+    // Modulo de serviços
     SharedModule.forRoot(),//declaração
-    RouterModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules})// modulo about foi compartilhado
+    RouterModule.forRoot(ROUTES, { preloadingStrategy: PreloadAllModules })// modulo about foi compartilhado
     // preloading carrega o modulo de rotas uma vez só
   ],//LOCALE_ID provide para mudar o valor da moeda
   providers: [
-
-    {provide: LOCALE_ID, useValue: 'pt-BR'}],//coloquei modulo de erro aqui
+    {provide: LocationStrategy, useClass: HashLocationStrategy},
+    { provide: LOCALE_ID, useValue: 'pt-BR' }],//coloquei modulo de erro aqui
   // Todo Service tem que colocar em providers
   //chamei o service  no providers
   bootstrap: [AppComponent]
