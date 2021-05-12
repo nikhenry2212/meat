@@ -24,8 +24,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 //importei o modulo pq estava dando erro no providers
 
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
-import { SharedModule } from './shared/shared.module'; ///modulo compartilhado (input,radio,raiting)
+import { SharedModule } from './shared/shared.module';///modulo compartilhado (input,radio,raiting)
 
+import { NotFoundComponent } from './not-found/not-found.component';
 
 //importei o modulo
 
@@ -46,6 +47,8 @@ import { SharedModule } from './shared/shared.module'; ///modulo compartilhado (
     ReviewsComponent,
 
     OrderSummaryComponent,
+
+    NotFoundComponent,
 
   ],
   imports: [

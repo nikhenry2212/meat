@@ -7,6 +7,7 @@ import { MenuComponent } from './restaurant-detail/menu/menu.component';
 import { ReviewsComponent } from './restaurant-detail/reviews/reviews.component';
 
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 export const ROUTES: Routes = [
   { path: '', component: HomeComponent },
@@ -24,6 +25,7 @@ export const ROUTES: Routes = [
 
   { path: 'order', loadChildren: './order/order.module#OrderModule' },//rota nova para o component Order
   { path: 'order-summary', component: OrderSummaryComponent },//rota nova para o component Order-summary
-  { path: 'about', loadChildren: './about/about.module#AboutModule'}// rota para compatilhar modulo
+  { path: 'about', loadChildren: './about/about.module#AboutModule' },// rota para compatilhar modulo
+  { path: '**', component: NotFoundComponent }// essa pagina de not-found tem q ser a ultima rota , pois se o navegador n acha a rota desejada ele cai nesta
   // add rota para component
 ]
