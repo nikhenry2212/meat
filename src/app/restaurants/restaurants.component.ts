@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 // import do modelo que o restaurant vai seguir =  criando uma tipagem
-import {Restaurant} from './restaurant/restaurant.model'
+import {Restaurant} from './restaurant/restaurant.model';
+
+
 import { RestaurantsService } from './restaurants.service';
 // tirei o modelo de tipagem de classe de Restaurant e coloquei para o modelo de service
 
