@@ -1,5 +1,6 @@
 <a [routerLink]="['/restaurants', restaurant.id]">
-  <div class="place-info-box">
+  <!-- Coloco a referencia do trigger  e a referencia do state -->
+  <div class="place-info-box" [@restaurantAppeared]="restaurantState">
     <!-- trazendo dados estaticos do arquivo restaurant.components.ts -->
     <!-- que fez a simulção com o db -->
     <span class="place-info-box-icon"><img [src]="restaurant.imagePath" ></span>
