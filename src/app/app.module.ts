@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID, } from '@angular/core'; //LOCALE_ID provide para mudar a moeda
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
@@ -56,7 +56,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
   ],
   imports: [
     BrowserModule,
-    HttpModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     // Modulo de serviços
     SharedModule.forRoot(),//declaração
