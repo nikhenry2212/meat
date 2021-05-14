@@ -31,6 +31,12 @@
     <div *ngFor='let restaurant of restaurants' class="col-sm-6 col-xs-12">
       <mt-restaurant [restaurant]="restaurant"></mt-restaurant>
     </div>
+    <!-- campo se a busca não retorna nenhum restaurante, mostra esse campo -->
+    <div *ngIf="restaurants?.length === 0" class="col-xs-12">
+      <p class="lead text-center">
+        Não foram encontrados items para sua busca.
+      </p>
+    </div>
   </div>
 
 </section>

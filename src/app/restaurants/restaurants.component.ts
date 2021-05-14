@@ -1,13 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup} from '@angular/forms'
-import {trigger, state, style, transition, animate} from '@angular/animations';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms'
+import { trigger, state, style, transition, animate } from '@angular/animations';
 // import do modelo que o restaurant vai seguir =  criando uma tipagem
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/from';
 
-import {Restaurant} from './restaurant/restaurant.model';
+import { Observable } from 'rxjs/Observable';
+
+import { Restaurant } from './restaurant/restaurant.model';
 import { RestaurantsService } from './restaurants.service';
 // tirei o modelo de tipagem de classe de Restaurant e coloquei para o modelo de service
 
@@ -16,11 +20,11 @@ import { RestaurantsService } from './restaurants.service';
   templateUrl: './restaurants.component.html',
   animations: [
     trigger('toggleSearch', [
-      state('hidden',style({
+      state('hidden', style({
         opacity: 0,
         "max-height": "0px"
       })),
-      state('visible',style({
+      state('visible', style({
         opacity: 1,
         "max-height": "70px",
         "margin-top": "20px"
@@ -36,7 +40,7 @@ export class RestaurantsComponent implements OnInit {
 
   searchBarState = 'hidden';
 
-   restaurants: Restaurant[]
+  restaurants: Restaurant[]
   //[
 
   // //simulando dados do back-end
@@ -63,7 +67,7 @@ export class RestaurantsComponent implements OnInit {
   searchControl: FormControl
 
   constructor(private restaurantService: RestaurantsService,
-              private fb: FormBuilder) { }
+    private fb: FormBuilder) { }
   // chamei ele dentro do constructor como propriedade
 
   ngOnInit() {
@@ -74,15 +78,15 @@ export class RestaurantsComponent implements OnInit {
     })
     //escutando cada tecla digita como params do input de pesquisa e filtrando
     this.searchControl.valueChanges
-          .debounceTime(600)//ignora oq esta sendo escrito no input por 6ms
-          .distinctUntilChanged()// ele segura a requisição por pouco tempo , pra n precisar outra
-          .switchMap(searchTerm =>
-           this.restaurantService.restaurants(searchTerm))
-           .subscribe(restaurants => this.restaurants = restaurants)
+      .debounceTime(600)//ignora oq esta sendo escrito no input por 6ms
+      .distinctUntilChanged()// ele segura a requisição por pouco tempo , pra n precisar outra
+      .switchMap(searchTerm => this.restaurantService.restaurants(searchTerm))
+      .catch(error => Observable.from([])) // caso o servidor cai ele n quebre a busca
+      .subscribe(restaurants => this.restaurants = restaurants)
 
     this.restaurantService.restaurants().subscribe(restaurants => this.restaurants = restaurants);
   }
-  toggleSearch(){
+  toggleSearch() {
     this.searchBarState = this.searchBarState === 'hidden' ? 'visible' : 'hidden';
   }
 
