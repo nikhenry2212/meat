@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-// import do modelo que o restaurant vai seguir =  criando uma tipagem
-import {Restaurant} from './restaurant/restaurant.model';
-
+import {FormBuilder, FormControl, FormGroup} from '@angular/forms'
 import {trigger, state, style, transition, animate} from '@angular/animations';
+// import do modelo que o restaurant vai seguir =  criando uma tipagem
+import 'rxjs/add/operator/switchMap';
 
-
-
+import {Restaurant} from './restaurant/restaurant.model';
 import { RestaurantsService } from './restaurants.service';
 // tirei o modelo de tipagem de classe de Restaurant e coloquei para o modelo de service
 
@@ -57,11 +56,25 @@ export class RestaurantsComponent implements OnInit {
 
   //     }
   // ]
+  searchForm: FormGroup //associados ao html
+  searchControl: FormControl
 
-  constructor(private restaurantService: RestaurantsService) { }
+  constructor(private restaurantService: RestaurantsService,
+              private fb: FormBuilder) { }
   // chamei ele dentro do constructor como propriedade
 
   ngOnInit() {
+
+    this.searchControl = this.fb.control('')
+    this.searchForm = this.fb.group({
+      searchControl: this.searchControl
+    })
+    //escutando cada tecla digita como params do input de pesquisa e filtrando
+    this.searchControl.valueChanges
+          .switchMap(searchTerm =>
+           this.restaurantService.restaurants(searchTerm))
+           .subscribe(restaurants => this.restaurants = restaurants)
+
     this.restaurantService.restaurants().subscribe(restaurants => this.restaurants = restaurants);
   }
   toggleSearch(){
