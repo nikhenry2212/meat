@@ -278,3 +278,8 @@ body {
  color: #4fa19d;
 
 }
+.search-bar{
+  opacity: 0;
+  max-height: 0px;
+  /* correção pq ficava aparecendo a barrano reload da pag */
+}
