@@ -22,10 +22,10 @@ export class RestaurantsService {
 
 
   constructor(private http: Http){}
-
-  restaurants(): Observable<Restaurant[]> {
+  //passando um params de pesquisa ñ obrigatorio?
+  restaurants(search?: string): Observable<Restaurant[]> {
     // return this.http.get(`${MEAT_API}/restaurants1`) teste de erro
-    return this.http.get(`${MEAT_API}/restaurants`)
+    return this.http.get(`${MEAT_API}/restaurants`, {params: {q: search}})// alocando um segundo params e ""q": significa q pode ser qualquer coisa que ele está ouvindo
       .map(response => response.json())
       .catch(ErrorHandler.handleError)
   }
