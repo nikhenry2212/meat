@@ -1,6 +1,6 @@
 
 import {Injectable} from '@angular/core';
-import {Http} from '@angular/http';
+import {HttpClient,HttpParams} from '@angular/common/http';
 
 import {Observable} from 'rxjs/Observable';
 
@@ -21,34 +21,31 @@ import { MenuItem } from 'app/restaurant-detail/menu-item/menu-item-model';
 export class RestaurantsService {
 
 
-  constructor(private http: Http){}
+  constructor(private http: HttpClient){}
   //passando um params de pesquisa ñ obrigatorio?
   restaurants(search?: string): Observable<Restaurant[]> {
+    let params: HttpParams = undefined;
+    if(search){
+      params = new HttpParams().append('q', search)
+
+    }
     // return this.http.get(`${MEAT_API}/restaurants1`) teste de erro
-    return this.http.get(`${MEAT_API}/restaurants`, {params: {q: search}})// alocando um segundo params e ""q": significa q pode ser qualquer coisa que ele está ouvindo
-      .map(response => response.json())
-      .catch(ErrorHandler.handleError)
+    return this.http.get<Restaurant[]>(`${MEAT_API}/restaurants`, {params: params})// alocando um segundo params e ""q": significa q pode ser qualquer coisa que ele está ouvindo
+
   }
 
   restaurantById(id: string): Observable<Restaurant> {
-    return this.http.get(`${MEAT_API}/restaurants/${id}`)
-      .map(response => response.json())
-      .catch(ErrorHandler.handleError)
+    return this.http.get<Restaurant>(`${MEAT_API}/restaurants/${id}`)
 
   }
 
   // Nova rota para avaliações
   reviewsOfRestaurant(id: string): Observable<any> {
     return this.http.get(`${MEAT_API}/restaurants/${id}/reviews`)
-    .map(response => response.json())
-    .catch(ErrorHandler.handleError)
-
-
   }
   menuOfRestaurants(id: string): Observable<MenuItem[]> {
-    return this.http.get(`${MEAT_API}/restaurants/${id}/menu`)
-    .map(response => response.json())
-    .catch(ErrorHandler.handleError)
+    return this.http.get<MenuItem[]>(`${MEAT_API}/restaurants/${id}/menu`)
+
     // criando nova rota de menu do restaurants items a serem consumidos
   }
 }
