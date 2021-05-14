@@ -4,7 +4,9 @@
   <h1>
     Todos os Restaurantes
     <!-- função para aparece a barra -->
-    <a (click)="toggleSearch()" class="search-link pull-right"><i class="fa fa-search"></i></a>
+    <a (click)="toggleSearch()" class="search-link pull-right">
+      <span *ngIf="iptSearch.value"><small>{{iptSearch.value}}</small></span> <i class="fa fa-search"></i></a>
+      <!-- um span q esta´associado ao valor do input === true ele motra o valor ao lado da lupa -->
   </h1>
 
   <!-- barra de busca -->
@@ -14,7 +16,8 @@
       <form [formGroup]="searchForm"> <!--Associado forGroup ts-->
         <div class="form-group">
           <!-- Associado ao formControl ts -->
-          <input type="text" formControlName="searchControl" class="form-control" placeholder="O que você está procurando?"/>
+          <input type="text" #iptSearch formControlName="searchControl" class="form-control" placeholder="O que você está procurando?"/>
+          <!-- #iptSearch associa a ngIf no span -->
         </div>
       </form>
     </div>

@@ -3,6 +3,9 @@ import {FormBuilder, FormControl, FormGroup} from '@angular/forms'
 import {trigger, state, style, transition, animate} from '@angular/animations';
 // import do modelo que o restaurant vai seguir =  criando uma tipagem
 import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/distinctUntilChanged';
 
 import {Restaurant} from './restaurant/restaurant.model';
 import { RestaurantsService } from './restaurants.service';
@@ -71,6 +74,8 @@ export class RestaurantsComponent implements OnInit {
     })
     //escutando cada tecla digita como params do input de pesquisa e filtrando
     this.searchControl.valueChanges
+          .debounceTime(600)//ignora oq esta sendo escrito no input por 6ms
+          .distinctUntilChanged()// ele segura a requisição por pouco tempo , pra n precisar outra
           .switchMap(searchTerm =>
            this.restaurantService.restaurants(searchTerm))
            .subscribe(restaurants => this.restaurants = restaurants)
