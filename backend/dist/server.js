@@ -1,4 +1,4 @@
-"use strict";
+
 exports.__esModule = true;
 var jsonServer = require("json-server");
 var fs = require("fs");
@@ -17,7 +17,7 @@ var options = {
     cert: fs.readFileSync('./backend/keys/cert.pem'),
     key: fs.readFileSync('./backend/keys/key.pem')
 };
-var urlHttps = 'https://localhost:3001';
-https.createServer(options, server).listen(3001, function () {
+var urlHttps = 'https://localhost:3002';
+https.createServer(options, server).listen(3002, function () {
     console.log("JSON Server is running on " + urlHttps);
 });
