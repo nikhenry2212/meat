@@ -19,7 +19,8 @@ server.use(middlewares)
 server.use(jsonServer.bodyParser)
 
 //middleware para login
-server.post('/login', handleAuthentication)
+server.post('/login', handleAuthentication
+)
 // server.use('/orders', handleAuthorization)
 
 // Use default router
