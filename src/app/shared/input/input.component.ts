@@ -10,6 +10,7 @@ export class InputComponent implements OnInit, AfterContentInit {
 // tipamos com decorator
   @Input() label: string;
   @Input() errorMessage: string;
+  @Input() showTip: boolean = true;
   input: any;
 
   @ContentChild(NgModel) model: NgModel
