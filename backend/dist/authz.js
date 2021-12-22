@@ -6,7 +6,7 @@ var api_config_1 = require("./api-config");
 var handleAuthorization = function (req, res, next) {
     var token = extractToken(req);
     if (!token) {
-        res.setHeader("WWW-Authenticate", 'Bearer token_type=JWT');
+        res.setHeader("WWW-Authenticate", 'Bearer token_type="JWT"');
         res.status(401).json({ message: 'você precisa se autenticar!' });
     }
     else {

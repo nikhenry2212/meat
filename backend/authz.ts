@@ -7,7 +7,7 @@ export const handleAuthorization = (req: Request, res: Response, next) => {
     const token = extractToken(req)
 
     if(!token){
-        res.setHeader("WWW-Authenticate", 'Bearer token_type=JWT')
+        res.setHeader("WWW-Authenticate", 'Bearer token_type="JWT"')
         res.status(401).json({message: 'você precisa se autenticar!'})
     }else{
         jwt.verify(token, apiConfig.secret, (error, decoded) => {
