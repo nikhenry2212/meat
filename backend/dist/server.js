@@ -22,6 +22,6 @@ var options = {
     cert: fs.readFileSync('./backend/keys/cert.pem'),
     key: fs.readFileSync('./backend/keys/key.pem')
 };
-https.createServer(options, server).listen(3002, function () {
-    console.log('JSON Server is running on https://localhost:3002');
+https.createServer(options, server).listen(3000, function () {
+    console.log('JSON Server is running on https://localhost:3000');
 });
